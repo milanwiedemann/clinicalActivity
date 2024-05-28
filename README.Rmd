@@ -1,0 +1,52 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# snomed: An R data package containing SNOMED code usage counts in Primary Care in England
+
+<!-- badges: start -->
+
+<!-- badges: end -->
+
+The goal of `snomed` is to to make anonymous SNOMED code usage counts in Primary Care in England available in R. 
+The original data is available from NHS Digital at <https://digital.nhs.uk/data-and-information/publications/statistical/mi-snomed-code-usage-in-primary-care>.
+
+## Installation
+
+You can install the development version of `snomed` like so:
+
+```r
+remotes::install_github("milanwiedemann/snomed")
+```
+
+## Example
+
+```{r load-pkg}
+# Load snomed package
+library(snomed)
+```
+### SNOMED Code Usage in Primary Care in England
+
+```{r data-usage}
+# Return snomed code usage data
+snomed_usage
+```
+
+### Dictionary of SNOMED Code Descriptions in Primary Care in England
+
+```{r data-dict}
+# Return snomed code dictionary
+snomed_dict
+```
+
