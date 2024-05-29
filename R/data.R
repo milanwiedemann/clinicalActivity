@@ -36,3 +36,16 @@ NULL
 #' }
 #' @source <https://digital.nhs.uk/data-and-information/publications/statistical/mi-snomed-code-usage-in-primary-care>
 "snomed_dict"
+
+#' Blood pressure (BP) recording codes
+#'
+#' SNOMED CT clinical code cluster: 999012731000230108.
+#'
+#' @format ## `bp_cod`
+#' A data frame with 97 rows and 2 columns:
+#' \describe{
+#'   \item{snomed_concept_id}{SNOMED Concept ID}
+#'   \item{description}{Description of SNOMED Concept ID}
+#' }
+#' @source <https://digital.nhs.uk/data-and-information/data-collections-and-data-sets/data-collections/quality-and-outcomes-framework-qof >
+"bp_cod"
