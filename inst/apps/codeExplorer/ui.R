@@ -1,12 +1,22 @@
 library(shiny)
 library(bslib)
 library(DT)
+library(dplyr)
 
 ui <- page_sidebar(
-  title = "My Data Viewer",
+  title = "Clinical Activity Explorer",
   sidebar = sidebar(
-    selectInput("variables", "Choose variables:", choices = NULL, multiple = TRUE),
-    numericInput("n_rows", "Number of rows to display:", value = 10, min = 1, max = 1000)
+    selectInput("dataset", "Select Dataset:",
+                choices = c("SNOMED-CT" = "snomed", "ICD-10" = "icd10")),
+    selectizeInput("code_search", "Search by Code:",
+                   choices = NULL,
+                   multiple = TRUE,
+                   options = list(maxOptions = 10)),
+    textInput("desc_search", "Search by Description:"),
+    actionButton("search", "Search", class = "btn-primary")
   ),
-  DTOutput("data_table")
+  card(
+    card_header("Results"),
+    DTOutput("results_table")
+  )
 )
