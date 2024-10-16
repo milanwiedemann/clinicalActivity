@@ -1,0 +1,56 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# clinicalActivity: Clinical Activity in England 
+
+<!-- badges: start -->
+
+<!-- badges: end -->
+
+The goal of `clinicalActivity` is to make yearly summaries of **SNOMED Code Usage in Primary Care** and **Hospital Admitted Patient Care Activity** published by NHS Digital available in R for research. 
+The original data is available from NHS Digital at:
+
+- [SNOMED Code Usage in Primary Care](https://digital.nhs.uk/data-and-information/publications/statistical/mi-snomed-code-usage-in-primary-care)
+- [Hospital Admitted Patient Care Activity](https://digital.nhs.uk/data-and-information/publications/statistical/hospital-admitted-patient-care-activity)
+
+## Installation
+
+You can install the development version of `clinicalActivity` like so:
+
+```r
+remotes::install_github("milanwiedemann/clinicalActivity")
+```
+
+## Example
+
+```{r load-pkg}
+# Load clinicalActivity package
+library(clinicalActivity)
+```
+
+### SNOMED Code Usage in Primary Care in England
+
+```{r snomed-usage}
+# Return SNOMED code usage data
+snomed_usage
+```
+
+### Hospital Admitted Patient Care Activity
+
+```{r icd10-usage}
+# Return ICD-10 code usage data
+icd10_usage
+```
+
