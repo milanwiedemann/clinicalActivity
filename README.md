@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# clinicalActivity: Clinical Activity Explorer
+# clinicalActivity: Clinical Activity in England
 
 <!-- badges: start -->
 
@@ -32,7 +32,10 @@ remotes::install_github("milanwiedemann/clinicalActivity")
 library(clinicalActivity)
 ```
 
-### SNOMED Code Usage in Primary Care in England
+### Dataset: SNOMED Code Usage in Primary Care in England
+
+This is only a selection of the full dataset published by NHS Digital,
+for the data pre-processing see `/data-raw/snomed_code_usage.R`.
 
 ``` r
 # Return SNOMED code usage data
@@ -54,10 +57,13 @@ snomed_usage
 #> # ℹ 1 more variable: active_at_end <lgl>
 ```
 
-### Hospital Admitted Patient Care Activity
+### Dataset: Hospital Admitted Patient Care Activity
+
+This is only a selection of the full dataset published by NHS Digital,
+for the data pre-processing see `/data-raw/icd10_code_usage.R`.
 
 ``` r
-# Return ICD-10 code usage data
+# Return ICD-10 diagnosis code usage data
 icd10_usage
 #> # A tibble: 33,893 × 5
 #>    start_date end_date   icd10_code description                            usage
@@ -73,4 +79,11 @@ icd10_usage
 #>  9 2022-04-01 2023-03-31 A02.2      Localized salmonella infections           74
 #> 10 2022-04-01 2023-03-31 A02.8      Other specified salmonella infections     37
 #> # ℹ 33,883 more rows
+```
+
+### Interactive Code Usage Explorer
+
+``` r
+# Open Shiny App to explore code usage interactively 
+run_explore_activity()
 ```

@@ -40,17 +40,29 @@ remotes::install_github("milanwiedemann/clinicalActivity")
 library(clinicalActivity)
 ```
 
-### SNOMED Code Usage in Primary Care in England
+### Dataset: SNOMED Code Usage in Primary Care in England
+
+This is only a selection of the full dataset published by NHS Digital, for the data pre-processing see
+`/data-raw/snomed_code_usage.R`.
 
 ```{r snomed-usage}
 # Return SNOMED code usage data
 snomed_usage
 ```
 
-### Hospital Admitted Patient Care Activity
+### Dataset: Hospital Admitted Patient Care Activity
+
+This is only a selection of the full dataset published by NHS Digital, for the data pre-processing see
+`/data-raw/icd10_code_usage.R`.
 
 ```{r icd10-usage}
-# Return ICD-10 code usage data
+# Return ICD-10 diagnosis code usage data
 icd10_usage
 ```
 
+### Interactive Code Usage Explorer
+
+```{r shiny-app, eval = FALSE}
+# Open Shiny App to explore code usage interactively 
+run_explore_activity()
+```
