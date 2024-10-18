@@ -63,6 +63,6 @@ icd10_usage
 ### Interactive Code Usage Explorer
 
 ```{r shiny-app, eval = FALSE}
-# Open Shiny App to explore code usage interactively 
+# Open Shiny App to explore code usage interactively
 run_explore_activity()
 ```

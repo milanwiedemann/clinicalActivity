@@ -2,10 +2,10 @@
 % Please edit documentation in R/app.R
 \name{run_explore_activity}
 \alias{run_explore_activity}
-\title{Interactive tool to explore code activity}
+\title{Interactive tool to explore clinical activity}
 \usage{
 run_explore_activity()
 }
 \description{
-This function launches the Shiny app for visualizing the data in this package.
+Launch Shiny app to explore clinical activity.
 }

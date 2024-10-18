@@ -1,0 +1,12 @@
+name: codeexplorer
+title: app
+username: milanwiedemann
+account: milanwiedemann
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13038362
+bundleId: 9237435
+url: https://milanwiedemann.shinyapps.io/codeexplorer/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
