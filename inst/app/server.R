@@ -71,38 +71,81 @@ server <- function(input, output, session) {
 
   # Code usage tends over time
   output$usage_plot <- renderPlotly({
-  scale_x_date_breaks <- unique(filtered_data()$start_date)
-    p <- filtered_data() %>%
-      group_by(start_date) %>%
-      summarise(total_usage = sum(usage, na.rm = TRUE)) %>%
-      ggplot(
-        aes(x = start_date, y = total_usage)
+
+    scale_x_date_breaks <- unique(filtered_data()$start_date)
+    unique_codes <- length(unique(filtered_data()$code))
+
+    if (input$show_individual_codes & unique_codes <= 500) {
+
+      p <- filtered_data() %>%
+        ggplot(
+          aes(
+            x = start_date,
+            y = usage,
+            colour = code)
         ) +
-      geom_line(
-        colour = "#239b89ff",
-        alpha = .4) +
-      geom_point(
-        colour = "#239b89ff",
-        size = 2,
-        aes(text = paste0(
-          "<b>Month:</b> ",
-          lubridate::month(start_date, label = TRUE), " ",
-          lubridate::year(start_date), "<br>",
-          "<b>Volume:</b> ", scales::comma(total_usage))
+        geom_line(alpha = .4) +
+        geom_point(
+          size = 2,
+          aes(text = paste0(
+            "<b>Month:</b> ",
+            lubridate::month(start_date, label = TRUE), " ",
+            lubridate::year(start_date), "<br>",
+            "<b>Code:</b> ", code, "<br>",
+            "<b>Description:</b> ", description, "<br>",
+            "<b>Usage:</b> ", scales::comma(usage))
           )
         ) +
-      scale_x_date(
-        breaks = scale_x_date_breaks,
-        labels = scales::label_date_short()
-      ) +
-      scale_y_continuous(
-        limits = c(0, NA),
-        labels = scales::label_comma()
-      ) +
-      ggplot2::scale_fill_viridis_d() +
-      labs(x = NULL, y = NULL) +
-      theme_classic() +
-      theme(text = element_text(size = 14))
+        scale_x_date(
+          breaks = scale_x_date_breaks,
+          labels = scales::label_date_short()
+        ) +
+        scale_y_continuous(
+          limits = c(0, NA),
+          labels = scales::label_comma()
+        ) +
+        ggplot2::scale_colour_viridis_d() +
+        labs(x = NULL, y = NULL) +
+        theme_classic() +
+        theme(
+          text = element_text(size = 14),
+          legend.position="none"
+          )
+
+    } else {
+
+      p <- filtered_data() %>%
+        group_by(start_date) %>%
+        summarise(total_usage = sum(usage, na.rm = TRUE)) %>%
+        ggplot(
+          aes(x = start_date, y = total_usage)
+        ) +
+        geom_line(
+          colour = "#239b89ff",
+          alpha = .4) +
+        geom_point(
+          colour = "#239b89ff",
+          size = 2,
+          aes(text = paste0(
+            "<b>Month:</b> ",
+            lubridate::month(start_date, label = TRUE), " ",
+            lubridate::year(start_date), "<br>",
+            "<b>Usage:</b> ", scales::comma(total_usage))
+          )
+        ) +
+        scale_x_date(
+          breaks = scale_x_date_breaks,
+          labels = scales::label_date_short()
+        ) +
+        scale_y_continuous(
+          limits = c(0, NA),
+          labels = scales::label_comma()
+        ) +
+        labs(x = NULL, y = NULL) +
+        theme_classic() +
+        theme(text = element_text(size = 14))
+
+    }
 
     ggplotly(p, tooltip = "text") %>%
       plotly::config(displayModeBar = FALSE)
@@ -128,7 +171,7 @@ server <- function(input, output, session) {
     )
   })
 
-
+  # Sparkline overview
   output$sparkline <- renderPlotly({
 
     data_spark <- filtered_data() %>%
@@ -150,8 +193,7 @@ server <- function(input, output, session) {
       paper_bgcolor = "transparent",
       plot_bgcolor = "transparent"
     ) %>%
-    config(displayModeBar = F)
+    config(displayModeBar = FALSE)
     })
-
 
 }

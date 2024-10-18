@@ -83,6 +83,10 @@ icd10_usage
 
 ### Interactive Code Usage Explorer
 
+The interactive tool is available online at
+<https://milanwiedemann.shinyapps.io/codeexplorer/> or by launching the
+Shiny app locally using:
+
 ``` r
 # Open Shiny App to explore code usage interactively
 run_explore_activity()

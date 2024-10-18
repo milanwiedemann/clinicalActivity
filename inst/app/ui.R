@@ -46,6 +46,11 @@ ui <- page_sidebar(
       ),
     nav_panel(
       p(bs_icon("graph-up"), "Trends over time"),
+      checkboxInput(
+        "show_individual_codes",
+        "Show individual codes (if <= 500)",
+        value = FALSE)
+      ,
       plotlyOutput("usage_plot")
       ),
     nav_panel(
