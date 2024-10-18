@@ -15,7 +15,7 @@ LazyData: true
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: https://github.com/milanwiedemann/clinicalActivity
+URL: https://github.com/milanwiedemann/clinicalActivity, https://milanwiedemann.github.io/clinicalActivity/
 BugReports: https://github.com/milanwiedemann/clinicalActivity/issues
 Imports: 
     bsicons,
