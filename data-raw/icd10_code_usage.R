@@ -2,6 +2,7 @@
 library(tidyverse)
 library(janitor)
 library(here)
+library(httr)
 
 url_start <- "https://files.digital.nhs.uk/"
 
@@ -82,14 +83,13 @@ icd10_code_usage_urls <- list(
 
 # Function to download and read the xlsx files
 read_icd10_usage_xlsx_from_url <- function(url_list, ...) {
-  tmp_xlsx <- tempfile()
-  download.file(
+  temp_file <- tempfile(fileext = ".xlsx")
+  GET(
     url_list$url,
-    destfile = "tmp_xlsx",
-    mode = "wb"
+    write_disk(temp_file, overwrite = TRUE)
   )
   readxl::read_xlsx(
-    "tmp_xlsx",
+    temp_file,
     col_names = FALSE,
     .name_repair = janitor::make_clean_names,
     sheet = url_list$sheet,
