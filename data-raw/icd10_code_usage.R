@@ -30,55 +30,55 @@ icd10_code_usage_urls <- list(
     sheet = 6,
     skip_rows = 12,
     usage_col = 8
+  ),
+  "fy19to20" = list(
+    url = paste0(url_start, "37/8D9781/hosp-epis-stat-admi-diag-2019-20-tab%20supp.xlsx"),
+    sheet = 6,
+    skip_rows = 11,
+    usage_col = 8
+  ),
+  "fy18to19" = list(
+    url = paste0(url_start, "1C/B2AD9B/hosp-epis-stat-admi-diag-2018-19-tab.xlsx"),
+    sheet = 6,
+    skip_rows = 11,
+    usage_col = 8
+  ),
+  "fy17to18" = list(
+    url = paste0(url_start, "B2/5CEC8D/hosp-epis-stat-admi-diag-2017-18-tab.xlsx"),
+    sheet = 6,
+    skip_rows = 11,
+    usage_col = 8
+  ),
+  "fy16to17" = list(
+    url = paste0(url_start, "publication/7/d/hosp-epis-stat-admi-diag-2016-17-tab.xlsx"),
+    sheet = 6,
+    skip_rows = 11,
+    usage_col = 8
+  ),
+  "fy15to16" = list(
+    url = paste0(url_start, "publicationimport/pub22xxx/pub22378/hosp-epis-stat-admi-diag-2015-16-tab.xlsx"),
+    sheet = 6,
+    skip_rows = 12,
+    usage_col = 8
+  ),
+  "fy14to15" = list(
+    url = paste0(url_start, "publicationimport/pub19xxx/pub19124/hosp-epis-stat-admi-diag-2014-15-tab.xlsx"),
+    sheet = 6,
+    skip_rows = 12,
+    usage_col = 8
+  ),
+  "fy13to14" = list(
+    url = paste0(url_start, "publicationimport/pub16xxx/pub16719/hosp-epis-stat-admi-diag-2013-14-tab.xlsx"),
+    sheet = 6,
+    skip_rows = 18,
+    usage_col = 3
+  ),
+  "fy12to13" = list(
+    url = paste0(url_start, "publicationimport/pub12xxx/pub12566/hosp-epis-stat-admi-diag-2012-13-tab.xlsx"),
+    sheet = 6,
+    skip_rows = 19,
+    usage_col = 3
   )
-  # "fy19to20" = list(
-  #   url = paste0(url_start, "37/8D9781/hosp-epis-stat-admi-diag-2019-20-tab%20supp.xlsx"),
-  #   sheet = 6,
-  #   skip_rows = 11,
-  #   usage_col = 8
-  # ),
-  # "fy18to19" = list(
-  #   url = paste0(url_start, "1C/B2AD9B/hosp-epis-stat-admi-diag-2018-19-tab.xlsx"),
-  #   sheet = 6,
-  #   skip_rows = 11,
-  #   usage_col = 8
-  # ),
-  # "fy17to18" = list(
-  #   url = paste0(url_start, "B2/5CEC8D/hosp-epis-stat-admi-diag-2017-18-tab.xlsx"),
-  #   sheet = 6,
-  #   skip_rows = 11,
-  #   usage_col = 8
-  # ),
-  # "fy16to17" = list(
-  #   url = paste0(url_start, "publications/7/d/hosp-epis-stat-admi-diag-2016-17-tab.xlsx"),
-  #   sheet = 6,
-  #   skip_rows = 11,
-  #   usage_col = 8
-  # ),
-  # "fy15to16" = list(
-  #   url = paste0(url_start, "publicationimport/pub22xxx/pub22378/hosp-epis-stat-admi-diag-2015-16-tab.xlsx"),
-  #   sheet = 6,
-  #   skip_rows = 12,
-  #   usage_col = 8
-  # ),
-  # "fy14to15" = list(
-  #   url = paste0(url_start, "publicationimport/pub19xxx/pub19124/hosp-epis-stat-admi-diag-2014-15-tab.xlsx"),
-  #   sheet = 6,
-  #   skip_rows = 12,
-  #   usage_col = 8
-  # ),
-  # "fy13to14" = list(
-  #   url = paste0(url_start, "publicationimport/pub16xxx/pub16719/hosp-epis-stat-admi-diag-2013-14-tab.xlsx"),
-  #   sheet = 6,
-  #   skip_rows = 18,
-  #   usage_col = 3
-  # ),
-  # "fy12to13" = list(
-  #   url = paste0(url_start, "publicationimport/pub12xxx/pub12566/hosp-epis-stat-admi-diag-2012-13-tab.xlsx"),
-  #   sheet = 6,
-  #   skip_rows = 19,
-  #   usage_col = 3
-  # )
 )
 
 # Function to download and read the xlsx files
