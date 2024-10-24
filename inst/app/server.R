@@ -37,6 +37,12 @@ server <- function(input, output, session) {
       data <- data %>% filter(grepl(input$description_search, description, ignore.case = TRUE))
     }
 
+    if (!is.null(input$codelist_url) && input$codelist_url != "") {
+      csv_url <- paste0(input$codelist_url, "download.csv")
+      codelist <- read.csv(csv_url, header = T)[,1]
+      data <- data %>% filter(code %in% codelist)
+    }
+
     data
   })
 

@@ -25,7 +25,11 @@ ui <- page_sidebar(
     textInput(
       "description_search",
       "Search by description:",
-      "")
+      ""),
+    textInput(
+      "codelist_url",
+      "Enter url from OpenCodelists:",
+      "")  
   ),
   layout_columns(
     value_box(
