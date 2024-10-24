@@ -25,7 +25,13 @@ ui <- page_sidebar(
     textInput(
       "description_search",
       "Search by description:",
-      "")
+      ""),
+    textInput(
+      "codelist_url",
+      "Enter url from OpenCodelists:",
+      ""),
+    tags$p("Required URL format: https://www.opencodelists.org/codelist/CodelistID/VersionTag/",
+     style = "font-size: 9px;")
   ),
   layout_columns(
     value_box(
