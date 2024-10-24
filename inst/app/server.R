@@ -75,13 +75,18 @@ server <- function(input, output, session) {
       )
   })
 
-  # Code usage tends over time
+  # Code usage trends over time
   output$usage_plot <- renderPlotly({
 
     scale_x_date_breaks <- unique(filtered_data()$start_date)
     unique_codes <- length(unique(filtered_data()$code))
 
     if (input$show_individual_codes & unique_codes <= 500) {
+
+      annual_usage_data <- 
+      filtered_data() %>%
+      group_by(start_date) %>%
+      summarise(total_usage = sum(usage, na.rm = TRUE)) 
 
       p <- filtered_data() %>%
         ggplot(
@@ -91,6 +96,10 @@ server <- function(input, output, session) {
             colour = code)
         ) +
         geom_line(alpha = .4) +
+        geom_line(data = annual_usage_data,
+          aes(
+            x = start_date,
+            y = total_usage)) +
         geom_point(
           size = 2,
           aes(text = paste0(
