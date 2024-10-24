@@ -83,11 +83,6 @@ server <- function(input, output, session) {
 
     if (input$show_individual_codes & unique_codes <= 500) {
 
-      annual_usage_data <- 
-      filtered_data() %>%
-      group_by(start_date) %>%
-      summarise(total_usage = sum(usage, na.rm = TRUE)) 
-
       p <- filtered_data() %>%
         ggplot(
           aes(
