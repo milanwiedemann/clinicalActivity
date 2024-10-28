@@ -25,7 +25,21 @@ ui <- page_sidebar(
     textInput(
       "description_search",
       "Search by description:",
-      "")
+      ""),
+    card(
+      card_header("Upload from OpenCodelists"),
+      textInput(
+        "codelist_id",
+        "Enter Codelist ID:",
+        placeholder = "nhsd-primary-care-domain-refsets/bp_cod",
+        NULL),
+      textInput(
+        "codelist_version_tag",
+        "Enter Version Tag/ID:",
+        placeholder = "20200812",
+        NULL),
+      actionButton("load_codelist", "Load codelist", class = "btn-primary")
+    )
   ),
   layout_columns(
     value_box(
