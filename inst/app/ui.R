@@ -26,12 +26,20 @@ ui <- page_sidebar(
       "description_search",
       "Search by description:",
       ""),
-    textInput(
-      "codelist_url",
-      "Enter url from OpenCodelists:",
-      ""),
-    tags$p("Required URL format: https://www.opencodelists.org/codelist/CodelistID/VersionTag/",
-     style = "font-size: 9px;")
+    card(
+      card_header("Upload from OpenCodelists"),
+      textInput(
+        "codelist_id",
+        "Enter Codelist ID:",
+        placeholder = "nhsd-primary-care-domain-refsets/bp_cod",
+        NULL),
+      textInput(
+        "codelist_version_tag",
+        "Enter Version Tag/ID:",
+        placeholder = "20200812",
+        NULL),
+      actionButton("load_codelist", "Load codelist", class = "btn-primary")
+    )
   ),
   layout_columns(
     value_box(
